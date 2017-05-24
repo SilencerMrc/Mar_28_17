@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zl.cjy.server.dao.SysLogMapper" >
+  <resultMap id="BaseResultMap" type="com.zl.cjy.server.entity.SysLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="method" property="method" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="param" property="param" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="exception_code" property="exceptionCode" jdbcType="VARCHAR" />
+    <result column="exception_details" property="exceptionDetails" jdbcType="VARCHAR" />
+    <result column="request_ip" property="requestIp" jdbcType="VARCHAR" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, method, type, info, param, url, exception_code, exception_details, request_ip, 
+    create_user, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sys_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zl.cjy.server.entity.SysLog" >
+    insert into sys_log (id, method, type, 
+      info, param, url, exception_code, 
+      exception_details, request_ip, create_user, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{method,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{info,jdbcType=VARCHAR}, #{param,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{exceptionCode,jdbcType=VARCHAR}, 
+      #{exceptionDetails,jdbcType=VARCHAR}, #{requestIp,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.cjy.server.entity.SysLog" >
+    insert into sys_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="method != null" >
+        method,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="info != null" >
+        info,
+      </if>
+      <if test="param != null" >
+        param,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="exceptionCode != null" >
+        exception_code,
+      </if>
+      <if test="exceptionDetails != null" >
+        exception_details,
+      </if>
+      <if test="requestIp != null" >
+        request_ip,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="method != null" >
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="info != null" >
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="param != null" >
+        #{param,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionCode != null" >
+        #{exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionDetails != null" >
+        #{exceptionDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="requestIp != null" >
+        #{requestIp,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.cjy.server.entity.SysLog" >
+    update sys_log
+    <set >
+      <if test="method != null" >
+        method = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="info != null" >
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="param != null" >
+        param = #{param,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionCode != null" >
+        exception_code = #{exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionDetails != null" >
+        exception_details = #{exceptionDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="requestIp != null" >
+        request_ip = #{requestIp,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.cjy.server.entity.SysLog" >
+    update sys_log
+    set method = #{method,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      info = #{info,jdbcType=VARCHAR},
+      param = #{param,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      exception_code = #{exceptionCode,jdbcType=VARCHAR},
+      exception_details = #{exceptionDetails,jdbcType=VARCHAR},
+      request_ip = #{requestIp,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

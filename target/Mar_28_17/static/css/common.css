@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+	padding: 0
+}
+
+a:link, a:visited {
+	text-decoration: none;
+}
+
+ul, li {
+	list-style-type: none
+}
+
+img {
+	border: 0;
+}
+
+body {
+	font-size: 12px;
+	background: #226039;
+	color: #5d5d5d;
+}
+
+.blank {
+	height: 5px;
+	overflow: hidden;
+	width: 100%;
+	margin: auto;
+	clear: both
+}
